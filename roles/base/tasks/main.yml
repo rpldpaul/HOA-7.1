@@ -1,0 +1,17 @@
+---
+
+  - name: update repository index (CentOS)
+    tags: always
+    yum:
+      name: "*"
+      state: latest
+    when: ansible_distribution == "CentOS"
+  
+  - name: install updates(Ubuntu)
+    tags: always
+    apt:
+      update_cache: yes
+    changed_when: false
+    when: ansible_distribution == "Ubuntu"
+
+
